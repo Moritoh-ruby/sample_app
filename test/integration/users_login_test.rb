@@ -47,5 +47,16 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     log_in_as(@user, remember_me: '0')
     assert_nil cookies['remember_token']
   end
+
+  test "unsuccessful edit" do
+    log_in_as(@user)
+    get edit_user_path(@user)
+  end
+  
+  test "successful edit" do
+    log_in_as(@user)
+    get edit_user_path(@user)
+  end  
+  
 end
 
